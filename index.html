@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>My first three.js app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Test Model with Three.js</title>
     <style>
         body { margin: 0; }
+        canvas { display: block; }
     </style>
     <!-- Import Map to load three.js modules from the CDN -->
     <script type="importmap">
@@ -23,26 +25,48 @@
 
         // Create the scene
         const scene = new THREE.Scene();
+
+        // Set up the camera with a perspective view
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
+        camera.position.z = 5;
+
+        // Set up the WebGL renderer and append it to the document body
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // Add a simple cube
-        const geometry = new THREE.BoxGeometry();
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-        const cube = new THREE.Mesh(geometry, material);
-        scene.add(cube);
+        // Add lighting to the scene
+        const light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(5, 5, 5).normalize();
+        scene.add(light);
 
-        camera.position.z = 5;
+        // Load the GLTF model
+        const loader = new GLTFLoader();
+        loader.load(
+            './TEST.c4d.gltf', // Path to your GLTF model
+            function (gltf) {
+                // Add the loaded model to the scene
+                scene.add(gltf.scene);
+                animate();
+            },
+            undefined,
+            function (error) {
+                console.error('An error occurred while loading the model:', error);
+            }
+        );
 
+        // Render the scene and animate
         function animate() {
             requestAnimationFrame(animate);
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.01;
             renderer.render(scene, camera);
         }
-        animate();
+
+        // Adjust the viewport when the window is resized
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
     </script>
 </body>
 </html>
