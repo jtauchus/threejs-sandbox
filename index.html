@@ -22,6 +22,7 @@
     <script type="module">
         import * as THREE from 'three';
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
         // Create the scene
         const scene = new THREE.Scene();
@@ -39,6 +40,14 @@
         const light = new THREE.DirectionalLight(0xffffff, 1);
         light.position.set(5, 5, 5).normalize();
         scene.add(light);
+
+        // Set up OrbitControls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true; // Enable damping (inertia) for smoother control
+        controls.dampingFactor = 0.05; // Damping factor
+        controls.screenSpacePanning = false; // Do not allow panning with right mouse button
+        controls.minDistance = 2; // Minimum zoom distance
+        controls.maxDistance = 50; // Maximum zoom distance
 
         // Load the GLTF model
         const loader = new GLTFLoader();
@@ -58,6 +67,7 @@
         // Render the scene and animate
         function animate() {
             requestAnimationFrame(animate);
+            controls.update(); // Required for damping to work
             renderer.render(scene, camera);
         }
 
