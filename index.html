@@ -10,7 +10,7 @@
     </style>
 </head>
 <body>
-    <!-- Use ES modules with correct paths -->
+    <!-- Correctly use ES modules with full URL paths -->
     <script type="module">
         import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js';
         import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/loaders/GLTFLoader.js';
@@ -21,7 +21,7 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // Add some simple geometry to verify the scene is rendering
+        // Add a simple rotating cube to test rendering
         const geometry = new THREE.BoxGeometry();
         const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
         const cube = new THREE.Mesh(geometry, material);
