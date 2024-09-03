@@ -6,15 +6,10 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // Load the GLTF model
-const loader = new THREE.GLTFLoader();
-loader.load('TEST.c4d.gltf', function (gltf) {
-    scene.add(gltf.scene); // Add the loaded model to the scene
-
-    // Optional: Adjust the position, scale, or rotation of the loaded model
-    gltf.scene.position.set(0, 0, 0); 
-    gltf.scene.scale.set(1, 1, 1);
-    
-    animate(); // Start the animation loop
+const loader = new GLTFLoader();
+loader.load('https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf', function (gltf) {
+    scene.add(gltf.scene);
+    animate();
 }, undefined, function (error) {
     console.error('An error occurred while loading the model:', error);
 });
