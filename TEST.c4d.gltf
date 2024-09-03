@@ -1,0 +1,200 @@
+{
+    "asset": {
+        "copyright": "2020 (c) Adobe Inc.",
+        "generator": "Adobe Dimension - 3de52ae4ccc0c25be48106335282fae5a6a58dee",
+        "version": "2.0"
+    },
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 13842,
+            "type": "VEC3",
+            "max": [
+                0.2649732530117035,
+                0.00800000037997961,
+                -0.0002539530396461487
+            ],
+            "min": [
+                0.00011289119720458984,
+                -0.00800000037997961,
+                -0.09858963638544083
+            ]
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 13842,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5126,
+            "count": 13842,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 3,
+            "componentType": 5125,
+            "count": 25422,
+            "type": "SCALAR",
+            "max": [
+                13841.0
+            ],
+            "min": [
+                0.0
+            ]
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 166104,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 166104,
+            "byteLength": 166104,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 332208,
+            "byteLength": 110736,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 442944,
+            "byteLength": 101688,
+            "target": 34963
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 544632,
+            "uri": "TEST.c4d_binary.bin"
+        }
+    ],
+    "cameras": [
+        {
+            "perspective": {
+                "znear": 0.00006380042032105848,
+                "yfov": 0.6024156808853149,
+                "zfar": 3.5090229511260988,
+                "aspectRatio": 1.3333333730697632
+            },
+            "type": "perspective",
+            "name": "render_camera"
+        }
+    ],
+    "images": [
+        {
+            "name": "composited_baseColor_opacity",
+            "uri": "TEST.c4d_images\\composited_baseColor_opacity.png",
+            "mimeType": "image/png"
+        },
+        {
+            "name": "composited_roughness",
+            "uri": "TEST.c4d_images\\composited_roughness.png",
+            "mimeType": "image/png"
+        }
+    ],
+    "materials": [
+        {
+            "pbrMetallicRoughness": {
+                "baseColorTexture": {
+                    "index": 0
+                },
+                "metallicFactor": 0.0,
+                "metallicRoughnessTexture": {
+                    "index": 1
+                }
+            },
+            "alphaMode": "MASK",
+            "name": "SVGMat.002",
+            "doubleSided": true
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Curve.001",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TEXCOORD_0": 2
+                    },
+                    "indices": 3,
+                    "material": 0
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "translation": [
+                2.811777353286743,
+                3.004653215408325,
+                3.2357311248779299
+            ],
+            "rotation": [
+                -0.2562463879585266,
+                0.2142360955476761,
+                0.05835391953587532,
+                0.9407632350921631
+            ],
+            "camera": 0,
+            "name": "render_camera_n3d"
+        },
+        {
+            "translation": [
+                -0.28358590602874758,
+                0.26338890194892886,
+                -0.18752801418304444
+            ],
+            "rotation": [
+                0.7071068286895752,
+                0.0,
+                0.0,
+                0.7071067094802856
+            ],
+            "scale": [
+                11.273009300231934,
+                11.27301025390625,
+                11.27301025390625
+            ],
+            "mesh": 0,
+            "name": "Curve.001"
+        }
+    ],
+    "samplers": [
+        {},
+        {}
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0,
+                1
+            ],
+            "name": "scene"
+        }
+    ],
+    "textures": [
+        {
+            "name": "composited_baseColor_opacity",
+            "sampler": 0,
+            "source": 0
+        },
+        {
+            "name": "composited_roughness",
+            "sampler": 1,
+            "source": 1
+        }
+    ],
+    "scene": 0
+}
