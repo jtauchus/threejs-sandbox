@@ -1,50 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js Sandbox</title>
+    <meta charset="utf-8">
+    <title>My first three.js app</title>
     <style>
         body { margin: 0; }
-        canvas { display: block; background-color: #f0f0f0; }
     </style>
+    <!-- Import Map to load three.js modules from the CDN -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/"
+        }
+      }
+    </script>
 </head>
 <body>
-    <!-- Correctly use ES modules with full URL paths -->
     <script type="module">
-        // Import Three.js and the GLTFLoader as modules
-        import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js';
-        import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/loaders/GLTFLoader.js';
+        import * as THREE from 'three';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
         // Create the scene
         const scene = new THREE.Scene();
-
-        // Set up the camera with a perspective view
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-
-        // Set up the WebGL renderer and append it to the document body
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // Add a simple rotating cube to the scene to test rendering
+        // Add a simple cube
         const geometry = new THREE.BoxGeometry();
         const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
         const cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
 
-        // Position the camera so the cube is visible
         camera.position.z = 5;
 
-        // Animation loop to rotate the cube and render the scene
         function animate() {
             requestAnimationFrame(animate);
             cube.rotation.x += 0.01;
             cube.rotation.y += 0.01;
             renderer.render(scene, camera);
         }
-
-        // Start the animation loop
         animate();
     </script>
 </body>
