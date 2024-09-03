@@ -10,7 +10,7 @@
     </style>
 </head>
 <body>
-    <!-- Use ES modules -->
+    <!-- Use ES modules with correct paths -->
     <script type="module">
         import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js';
         import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/loaders/GLTFLoader.js';
@@ -29,4 +29,12 @@
             console.error('An error occurred while loading the model:', error);
         });
 
-        camera.position.z
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+    </script>
+</body>
+</html>
