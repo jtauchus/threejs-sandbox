@@ -24,10 +24,10 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.05;
 
-// Load the GLBF model
+// Load the GLTF model
 const loader = new GLTFLoader();
 loader.load(
-    './Fountain.glbf', // Path to your new GLBF model
+    './Fountain.gltf', // Correct path to your optimized GLTF model
     function (gltf) {
         // Add the loaded model to the scene
         scene.add(gltf.scene);
